@@ -56,6 +56,7 @@ This project uses the NASA APOD API:
 * HTML
 * CSS
 * JavaScript
+* React
 * NASA APOD API
 
 ---
