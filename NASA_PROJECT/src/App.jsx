@@ -1,7 +1,6 @@
 import Header from "./components/Header.jsx"
 import SearchBar from "./components/SearchBar.jsx"
 import Card from "./components/Card.jsx"
-import Loader from "./components/loading.jsx";
 import Footer from "./components/Footer.jsx";
 import { useState } from "react";
 
@@ -31,7 +30,7 @@ return (
 <div className="App">
    <Header/>
    <SearchBar setDate={setDate} fetchAPI={fetchAPI}/>
-   {loading && <Loader />}
+   {loading && <div>🚀loading....</div>}
    {data && <Card url={data.url} title={data.title} explanation={data.explanation}/>}
    <Footer/>
 </div>
