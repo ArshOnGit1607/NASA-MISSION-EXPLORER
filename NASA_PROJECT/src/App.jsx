@@ -38,3 +38,4 @@ return (
 }
 export default App
 
+// Fix image update on date selection
