@@ -1,0 +1,48 @@
+.Navbar {
+  background-color: #1a1a1a;
+  padding: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.NavContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.NavLogo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #00d4ff;
+  text-decoration: none;
+  margin-right: 2rem;
+}
+
+.NavLogo:hover {
+  color: #00e6ff;
+}
+
+.NavMenu {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+}
+
+.NavItem {
+  margin: 0;
+}
+
+.NavLink {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.NavLink:hover {
+  color: #00d4ff;
+}
