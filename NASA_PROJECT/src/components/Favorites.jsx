@@ -58,3 +58,4 @@ function Favorites({ favorites }) {
 }
 
 export default Favorites;// Favorites page with search and filter functionality
+// Added sorting by alphabetical order
