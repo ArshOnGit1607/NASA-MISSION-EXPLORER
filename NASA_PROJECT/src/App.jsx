@@ -40,3 +40,4 @@ export default App
 
 // Fix image update on date selection
 // Initialize favorites state properly
+// Setup router configuration
