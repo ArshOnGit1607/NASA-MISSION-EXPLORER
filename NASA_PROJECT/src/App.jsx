@@ -1,6 +1,6 @@
 import Navbar from "./components/Navbar.jsx";
 import Home from "./components/Home.jsx";
-import Favorites from "./components/favorites.jsx";
+import Favorites from "./components/Favorites.jsx";
 import { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 
