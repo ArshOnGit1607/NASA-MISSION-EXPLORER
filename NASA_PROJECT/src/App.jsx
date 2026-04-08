@@ -1,11 +1,20 @@
 import Navbar from "./components/Navbar.jsx";
 import Home from "./components/Home.jsx";
 import Favorites from "./components/favorites.jsx";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 
 function App() {
   const [favorite, setFavorites] = useState([]);
+  const [theme, setTheme] = useState("dark");
+
+  useEffect(() => {
+    document.body.dataset.theme = theme;
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme(theme === "dark" ? "light" : "dark");
+  };
 
   function addToFavorites(data) {
     const newItem = {
@@ -24,8 +33,8 @@ function App() {
   }
 
   return (
-    <div className="App">
-      <Navbar />
+    <div className="App" data-theme={theme}>
+      <Navbar theme={theme} toggleTheme={toggleTheme} />
       <Routes>
         <Route path="/" element={<Home addToFavorites={addToFavorites} />} />
         <Route path="/favorites" element={<Favorites favorites={favorite} />} />

@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import "./Navbar.css";
 
-function Navbar() {
+function Navbar({ theme, toggleTheme }) {
   return (
     <nav className="Navbar">
       <div className="NavContainer">
@@ -18,6 +18,11 @@ function Navbar() {
             <Link to="/favorites" className="NavLink">
               ⭐ Favorites
             </Link>
+          </li>
+          <li className="NavItem">
+            <button className="ThemeToggle" onClick={toggleTheme} title="Toggle theme">
+              {theme === "dark" ? "☀️" : "🌙"}
+            </button>
           </li>
         </ul>
       </div>
