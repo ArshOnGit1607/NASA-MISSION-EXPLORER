@@ -27,3 +27,4 @@ function Navbar() {
 
 export default Navbar;
 // Add navbar component with styling
+// Fix favorites import casing issue
