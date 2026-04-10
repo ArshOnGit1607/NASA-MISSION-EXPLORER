@@ -1,6 +1,5 @@
 import SearchBar from "./SearchBar.jsx";
 import Card from "./Card.jsx";
-import Footer from "./Footer.jsx";
 import { useState } from "react";
 
 function Home({ addToFavorites }) {
@@ -17,11 +16,14 @@ function Home({ addToFavorites }) {
       const res = await fetch(
         `https://api.nasa.gov/planetary/apod?api_key=${API}&date=${selectedDate}`
       );
+      if (!res.ok) {
+        throw new Error(`NASA API returned ${res.status} ${res.statusText}`);
+      }
       const result = await res.json();
       setData(result);
     } catch (err) {
       console.error(err);
-      alert("Something went wrong");
+      alert(`Something went wrong: ${err.message || "Failed to fetch data from NASA API."}`);
     }
     setLoading(false);
   };
@@ -39,7 +41,6 @@ function Home({ addToFavorites }) {
           explanation={data.explanation}
         />
       )}
-      <Footer />
     </div>
   );
 }
