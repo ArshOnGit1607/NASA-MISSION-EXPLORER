@@ -3,6 +3,7 @@ import Home from "./components/Home.jsx";
 import Favorites from "./components/Favorites.jsx";
 import Stars from "./components/Stars.jsx";
 import Sun from "./components/Sun.jsx";
+import Footer from "./components/Footer.jsx";
 import { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 
@@ -54,6 +55,7 @@ function App() {
         <Route path="/" element={<Home addToFavorites={addToFavorites} />} />
         <Route path="/favorites" element={<Favorites favorites={favorite} />} />
       </Routes>
+      <Footer />
     </div>
   );
 }
