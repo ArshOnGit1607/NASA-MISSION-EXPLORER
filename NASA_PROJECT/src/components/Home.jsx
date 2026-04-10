@@ -31,12 +31,18 @@ function Home({ addToFavorites }) {
   return (
     <div className="Home">
       <SearchBar date={date} setDate={setDate} fetchAPI={fetchAPI} />
-      {loading && <div>🚀loading....</div>}
+      {loading && (
+        <div className="LoadingWrapper">
+          <div className="Spinner"></div>
+          <p>Fetching from NASA...</p>
+        </div>
+      )}
       {data && (
         <Card
           addToFavorites={() => addToFavorites(data)}
           key={data.url}
           url={data.url}
+          hdurl={data.hdurl}
           title={data.title}
           explanation={data.explanation}
         />

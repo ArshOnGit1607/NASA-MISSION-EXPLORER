@@ -48,6 +48,7 @@ function Favorites({ favorites }) {
           <Card
             key={item.date}
             url={item.url}
+            hdurl={item.hdurl}
             title={item.title}
             explanation={item.explanation}
           />

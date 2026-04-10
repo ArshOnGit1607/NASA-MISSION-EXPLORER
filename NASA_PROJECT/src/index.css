@@ -18,15 +18,15 @@
 }
 
 [data-theme="light"] {
-  --bg-primary: #e8edf3;
-  --bg-secondary: #dfe5ee;
-  --text-primary: #1a1a1a;
-  --text-secondary: #6d7684;
-  --text-tertiary: #3c4a5a;
-  --accent: #1d6fa5;
-  --accent-dark: #155d8b;
-  --card-bg: #ffffff;
-  --card-border: rgba(0, 0, 0, 0.15);
+  --bg-primary: #e6ddd0;
+  --bg-secondary: #d9cfbf;
+  --text-primary: #1c1c1e;
+  --text-secondary: #6b5e52;
+  --text-tertiary: #3a2e24;
+  --accent: #c05c2a;
+  --accent-dark: #a04820;
+  --card-bg: #fef9f2;
+  --card-border: rgba(100, 70, 40, 0.18);
 }
 
 body {
@@ -39,7 +39,7 @@ body {
 }
 
 body[data-theme="light"] {
-  background: linear-gradient(135deg, var(--bg-primary), var(--bg-secondary));
+  background: linear-gradient(160deg, #e6ddd0, #d4c8b5);
 }
 
 .App {
@@ -105,8 +105,9 @@ body[data-theme="light"] {
 }
 
 [data-theme="light"] .SearchBox input[type="date"] {
-  background: #ffffff;
-  border: 1px solid #ddd;
+  background: #fef9f2;
+  border: 1px solid #d4c4a8;
+  color: #1c1c1e;
 }
 
 .SearchBox button {
@@ -149,12 +150,85 @@ body[data-theme="light"] {
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.14);
 }
 
-.Card img {
+.CardImgWrapper {
+  position: relative;
+  cursor: zoom-in;
+  overflow: hidden;
+}
+
+.CardImgWrapper img {
   width: 100%;
   height: 400px;
   object-fit: cover;
   display: block;
+  transition: transform 0.3s ease;
 }
+
+.CardImgWrapper:hover img {
+  transform: scale(1.03);
+}
+
+.HdHint {
+  position: absolute;
+  bottom: 10px;
+  right: 12px;
+  background: rgba(0, 0, 0, 0.55);
+  color: #fff;
+  font-size: 0.78rem;
+  padding: 4px 10px;
+  border-radius: 20px;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  pointer-events: none;
+}
+
+.CardImgWrapper:hover .HdHint {
+  opacity: 1;
+}
+
+/* Lightbox */
+.Lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.88);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+  cursor: zoom-out;
+}
+
+.LightboxImg {
+  max-width: 92vw;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: 8px;
+  cursor: default;
+}
+
+.LightboxClose {
+  position: absolute;
+  top: 18px;
+  right: 22px;
+  background: rgba(255, 255, 255, 0.12);
+  border: none;
+  color: #fff;
+  font-size: 1.3rem;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease;
+}
+
+.LightboxClose:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
 
 .CardContent {
   padding: 25px;
@@ -193,6 +267,50 @@ body[data-theme="light"] {
   transform: translateY(0);
 }
 
+#hdButton {
+  padding: 10px 25px;
+  background: linear-gradient(45deg, #2a7ab5, #1c5e8f);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  margin-top: 15px;
+}
+
+#hdButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 20px rgba(42, 122, 181, 0.4);
+}
+
+#hdButton:active {
+  transform: translateY(0);
+}
+
+.LoadingWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  padding: 40px 0;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+.Spinner {
+  width: 36px;
+  height: 36px;
+  border: 3px solid var(--card-border);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
 .Footer {
   text-align: center;
   padding: 20px 0;
@@ -228,7 +346,7 @@ body[data-theme="light"] {
     margin: 0 -10px 20px -10px;
   }
 
-  .Card img {
+  .CardImgWrapper img {
     height: 250px;
   }
 
@@ -246,10 +364,14 @@ body[data-theme="light"] {
     flex-direction: row;
   }
 
-  .Card img {
+  .CardImgWrapper {
     width: 300px;
     height: 300px;
     flex-shrink: 0;
+  }
+
+  .CardImgWrapper img {
+    height: 300px;
   }
 
   .CardContent {
@@ -321,8 +443,8 @@ body[data-theme="light"] {
 }
 
 [data-theme="light"] .FavoritesControls select {
-  background: #ffffff;
-  border: 1px solid #ddd;
+  background: #f5f0e6;
+  border: 1px solid #e0d8c8;
 }
 
 .FavoritesControls input[type="text"]::placeholder {
