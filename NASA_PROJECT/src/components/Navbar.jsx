@@ -1,12 +1,14 @@
 import { Link } from "react-router-dom";
 import "./Navbar.css";
+import nasaLogo from "../assets/image copy.png";
 
 function Navbar({ theme, toggleTheme }) {
   return (
     <nav className="Navbar">
       <div className="NavContainer">
         <Link to="/" className="NavLogo">
-          🚀 NASA Explorer
+          <img src={nasaLogo} alt="NASA logo" style={{ height: "28px", marginRight: "8px", verticalAlign: "middle" }} />
+          NASA Explorer
         </Link>
         <ul className="NavMenu">
           <li className="NavItem">
