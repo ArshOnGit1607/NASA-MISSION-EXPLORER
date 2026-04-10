@@ -37,7 +37,7 @@ This project uses the NASA APOD API:
 * **HD Image Lightbox:** Click on any image or the "View HD" button to open a high-resolution, full-screen lightbox overlay.
 * **Favorites System:** Save your favorite astronomy pictures. All favorites are persistently saved in your browser using `localStorage`.
 * **Favorites Filtering:** Easily search, filter, and sort your saved favorites.
-* **Dark & Light Mode Themes:** Toggle seamlessly between a dynamic dark space theme and a warm, cohesive sandy light theme.
+* **Dynamic Ambient Backgrounds:** Toggle seamlessly between themes featuring custom CSS animations—a twinkling starry sky for Dark Mode and a softly pulsating morning sun for Light Mode.
 * **Robust Loading & Error Handling:** Intercepts NASA API downtime gracefully with fallback UI alerts and displays a seamless pulsing CSS loading spinner while fetching.
 * **Modern & Clean UI:** Clean React-based interface with floating UI elements, animations, and zero heavy dependencies.
 
