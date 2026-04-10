@@ -5,12 +5,23 @@ import { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 
 function App() {
-  const [favorite, setFavorites] = useState([]);
+  const [favorite, setFavorites] = useState(() => {
+    try {
+      const stored = localStorage.getItem("nasa-favorites");
+      return stored ? JSON.parse(stored) : [];
+    } catch {
+      return [];
+    }
+  });
   const [theme, setTheme] = useState("dark");
 
   useEffect(() => {
     document.body.dataset.theme = theme;
   }, [theme]);
+
+  useEffect(() => {
+    localStorage.setItem("nasa-favorites", JSON.stringify(favorite));
+  }, [favorite]);
 
   const toggleTheme = () => {
     setTheme(theme === "dark" ? "light" : "dark");
