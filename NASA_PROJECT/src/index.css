@@ -39,7 +39,7 @@ body {
 }
 
 body[data-theme="light"] {
-  background: linear-gradient(160deg, #e6ddd0, #d4c8b5);
+  background: linear-gradient(160deg, #fdfbfb, #fef4e8, #f0e6d6);
 }
 
 .App {
@@ -478,3 +478,56 @@ body[data-theme="light"] {
     font-size: 1.5rem;
   }
 }
+
+/* Stars Background */
+.StarsContainer {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.Star {
+  position: absolute;
+  background-color: white;
+  border-radius: 50%;
+  opacity: 0.2;
+  animation-name: twinkle;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  box-shadow: 0 0 4px rgba(255, 255, 255, 0.4);
+}
+
+@keyframes twinkle {
+  0% { opacity: 0.1; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1.2); }
+  100% { opacity: 0.1; transform: scale(0.8); }
+}
+
+/* Morning Sun Effect */
+.MorningSunContainer {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.MorningSun {
+  position: absolute;
+  top: -150px;
+  right: -150px;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(255, 220, 120, 0.8) 0%, rgba(255, 180, 100, 0.4) 40%, rgba(255, 150, 50, 0) 70%);
+  border-radius: 50%;
+  filter: blur(60px);
+  animation: sunPulse 10s infinite alternate ease-in-out;
+}
+
+@keyframes sunPulse {
+  0% { transform: scale(0.95); opacity: 0.85; }
+  100% { transform: scale(1.15); opacity: 1; }
+}
+

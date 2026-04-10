@@ -1,6 +1,8 @@
 import Navbar from "./components/Navbar.jsx";
 import Home from "./components/Home.jsx";
 import Favorites from "./components/Favorites.jsx";
+import Stars from "./components/Stars.jsx";
+import Sun from "./components/Sun.jsx";
 import { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 
@@ -45,6 +47,8 @@ function App() {
 
   return (
     <div className="App" data-theme={theme}>
+      {theme === "dark" && <Stars />}
+      {theme === "light" && <Sun />}
       <Navbar theme={theme} toggleTheme={toggleTheme} />
       <Routes>
         <Route path="/" element={<Home addToFavorites={addToFavorites} />} />
